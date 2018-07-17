@@ -1,0 +1,129 @@
+//: Playground - noun: a place where people can play
+
+
+
+import UIKit
+
+var str = "Hello, playground"
+
+func greet(message:String)
+{
+    print("\(message)")
+}
+
+greet(message: "Good morning")
+
+//Calling the function
+func test()
+{
+    print("This is a test function")
+}
+
+test()
+//param - we have to put lable nd datatype
+//when call func it shiuld accept param
+//-> arrow opratr
+func addition(n1: Int,n2: Int)
+{
+    var sum : Int
+    sum=n1+n2
+    print("sum of \(n1) and \(n2) is \(sum)")
+}
+//addition(20,30)-Error
+//addition(n2:1,n1:12)-Error
+
+addition(n1: 20, n2: 30)
+var a = 10
+var b = 20
+
+addition(n1: a, n2: b)
+// We have to use (_) to define a optional value
+//when u return [] use to show its an array
+//func overloading is allowed
+func subtraction(n1: Float, _ n2 : Float)
+{
+    print("subtraction: \(n1-n2)")
+}
+
+subtraction(n1: 23.45, 54.36)
+
+func mul (n1: Int, n2: Int) -> Int
+{
+    var m = n1 * n2
+    return m
+}
+//if u dont want to use the ans of func than put it as  let so it will directly send te ans to garbage
+let _ = mul(n1:9, n2: 2)
+//var ans = mul(n1: 9, n2: 2)
+
+//print("mul = \(ans)")
+
+////func swap(j: Int, k: Int)
+////{
+  ////  return(k,j)
+////}
+////(a,b) = swape(j: 1, k: 8)
+////print("a= \(a) b= \(b)")
+//when we r calling inout method then we are not just pass the value we r giving the ref
+
+func swapTwoInts(_ a: inout Int, _ b: inout Int) {
+    let temporaryA = a
+    a = b
+    b = temporaryA
+}
+//by default tht param r let constant so to swape them make it inout
+var x = 45, y = 76
+swap(&x, &y)
+
+print("x = \(x) y = \(y)")
+// to make a labl optional _ is used
+func SI (amount: Double,_ years: Double = 2, rate: Double = 2.0) -> Double{
+return ((amount*years*rate) / 100)
+}
+var deposit1 = SI (amount: 12000.2, rate: 3.2)
+print("deposit1 = \(deposit1)")
+
+//by default rate of interest shoud be 2.0
+
+var deposit2 = SI(amount: 12000.2, 1)
+print("deposit2 = \(deposit2)")
+
+//variadic param accepts 0 or more values
+
+func dispCount(numbers: Int...){
+    var sum = 0
+    for n in numbers{
+        sum += n
+    }
+    print("sum of arguments \(sum)")
+}
+dispCount(numbers: 1,2,3)
+dispCount(numbers:23,34,56,78,90)
+
+func addArrays(arrays: [Int]...){
+    var a = arrays.count
+    print("a = \(a)")
+    //arrays.count is what no of array we r passing
+    var array1 = arrays[0]
+    var array2 = arrays[1]
+    var result = [Int]()
+    
+    if array1.count == array2.count{
+        for i in 0..<array1.count{
+            result.append(array1[i] + array2[i])
+        }
+    }
+    //return result
+ }
+var ar1 = [1,2,3,4,5]
+var ar2 = [9,9,9,9,9]
+
+addArrays(arrays: ar1, ar2, ar1, ar2)
+//var with type func - mathOper
+
+//both func must have same dt, param
+//how u can pass func as param in another func!?
+//ans:u dont pass func name we pass same prototype
+//when u cll func then use func name
+
+
